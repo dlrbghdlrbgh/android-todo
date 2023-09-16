@@ -130,8 +130,6 @@ class MainActivity : AppCompatActivity() {
 
             // 변경됬음을 전달
             binding.list.adapter?.notifyDataSetChanged()
-
-            binding.list.adapter?.notifyDataSetChanged()
         }
 
         // 2000은 등록화면을 호출할 때 넘겼던 데이터

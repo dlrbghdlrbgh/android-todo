@@ -34,6 +34,7 @@ class UpdateActivity : AppCompatActivity() {
             binding.summary.setText(todo.summary)
             binding.date.setText(todo.date)
             binding.place.setText(todo.place)
+            binding.content.setText(todo.content)
 
             /**
              * 메인에서 넘겨준 todo중 content의 값을 뷰에 설정하는 코드를 만들어주세요
@@ -46,7 +47,9 @@ class UpdateActivity : AppCompatActivity() {
                 Snackbar.make(it, "요약을 입력해주세요", 300).show()
             } else if (binding.date.text!!.isEmpty()) {
                 Snackbar.make(it, "날짜를 입력해주세요", 300).show()
-            } else {
+            } else if(binding.content.text!!.isEmpty()){
+                Snackbar.make(it, "내용을 입력해주세요", 300).show()
+            }else {
                 val intent = Intent()
                 intent.putExtra(
                     "data",
@@ -57,7 +60,8 @@ class UpdateActivity : AppCompatActivity() {
                     Todo(
                         binding.summary.text.toString(),
                         binding.date.text.toString(),
-                        binding.place.text.toString()
+                        binding.place.text.toString(),
+                        binding.content.text.toString()
                     )
                 )
                 intent.putExtra("index", index)
